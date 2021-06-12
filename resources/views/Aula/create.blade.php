@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="container" style="border: 1px solid; border-color: green; padding: 10px; border-radius: 70px 20px;">
             <strong><h1 align="center">Aulas</h1></strong>
-            <form action="{{ url('/MK/insert') }}" method="post" class="col-md-6" enctype="multipart/form-data">
+            <form action="{{ url('/Aula/notificationAl') }}" method="post" class="col-md-6" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <input type="text" class="form-control col-md-6" name="a_id" placeholder="Identificador del aula"

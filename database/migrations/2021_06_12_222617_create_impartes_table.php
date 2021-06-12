@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImparteTable extends Migration
+class CreateImpartesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateImparteTable extends Migration
      */
     public function up()
     {
-        Schema::create('imparte', function (Blueprint $table) {
+        Schema::create('impartes', function (Blueprint $table) {
             $table->string("c_codclase", 5)->unique();
             $table->string("p_idprofesor", 10)->unique();
             $table->unsignedBigInteger("a_idaula", 20);
-            $table->foreign("c_codclase")->references("codclase")->on("clase")->onDelete("cascade")->onUpdate("cascade");
-            $table->foreign("p_idprofesor")->references("id")->on("profesor")->onDelete("cascade")->onUpdate("cascade");
-            $table->foreign("a_idaula")->references("id")->on("aula")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign("c_codclase")->references("codclase")->on("clases")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign("p_idprofesor")->references("id")->on("profesors")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign("a_idaula")->references("id")->on("aulas")->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateImparteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imparte');
+        Schema::dropIfExists('impartes');
     }
 }

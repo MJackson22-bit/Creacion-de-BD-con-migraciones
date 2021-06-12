@@ -6,7 +6,7 @@
     <div class="card-body">
         <div class="container" style="border: 1px solid; border-color: green; padding: 10px; border-radius: 70px 20px;">
             <h1 align="center">Profesores</h1>
-            <form action="{{ url('/MK/insert') }}" method="post" class="col-md-6" enctype="multipart/form-data">
+            <form action="{{ url('/Profesor/notificationPro') }}" method="post" class="col-md-6" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <input type="text" class="form-control col-md-6" name="p_id" placeholder="Identificador del profesor" maxlength="10" required>
@@ -33,5 +33,6 @@
             <hr/>
             <a class="btn btn-primary" href="/Profesor/list" role="button">Ver registro de Profesores</a>
         </div>
+    </div>
 </div>
 @endsection
