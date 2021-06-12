@@ -13,12 +13,13 @@ class CreateClaseTable extends Migration
      */
     public function up()
     {
-        Schema::create('clase', function (Blueprint $table) {
-            $table->string('codclase', 5);
-            $table->string('nombre', 255);
-            $table->integer('credito', 10);
+       Schema::create('clase', function (Blueprint $table) {
+            $table->bigIncrements('codclase');
+            $table->string("nombre");
+            $table->integer("credito")->unsigned();
             $table->timestamps();
         });
+        
     }
 
     /**
