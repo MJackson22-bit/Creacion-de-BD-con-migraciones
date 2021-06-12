@@ -18,10 +18,12 @@ Route::get('/', function () {
 });
 //Aula
 Route::get('/Aula/list', 'App\Http\Controllers\AulaController@index');
-
+Route::get('/Aula/create', 'App\Http\Controllers\AulaController@create');
 
 //Clase
 Route::get('/Clase/list', 'App\Http\Controllers\ClaseController@index');
+Route::get('/Clase/create', 'App\Http\Controllers\ClaseController@create');
 
 //Profesor
 Route::get('/Profesor/list', 'App\Http\Controllers\ProfesorController@index');
+Route::get('/Profesor/create', 'App\Http\Controllers\ProfesorController@create');

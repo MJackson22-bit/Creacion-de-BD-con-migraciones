@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 @extends('index')
 
-@section('list_aula')
-
-   {{$message}}
+@section('contenido')
+<div class="container" style="margin-top:45px;">
+    <h2 align="center"><strong>{{$message}}</strong></h2>
+</div>
+   
 
  
 

@@ -9,7 +9,10 @@ class ProfesorController extends Controller
 {
     public function index() {
         $listaProfesor = DB::table('profesor')->get();
-        $message = "";
+        $message = "Profesores registrados";
         return view('Profesor.list', compact('listaProfesor', 'message'));
+    }
+    public function create(){
+        return view('Profesor.create');
     }
 }
