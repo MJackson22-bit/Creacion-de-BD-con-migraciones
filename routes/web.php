@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+//Aula
+Route::get('/Aula/list', 'App\Http\Controllers\AulaController@index');
+
+
+//Clase
+Route::get('/Clase/list', 'App\Http\Controllers\ClaseController@index');
+
+//Profesor
+Route::get('/Profesor/list', 'App\Http\Controllers\ProfesorController@index');
