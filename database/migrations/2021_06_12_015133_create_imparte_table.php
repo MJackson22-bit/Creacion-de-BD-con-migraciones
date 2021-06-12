@@ -14,12 +14,12 @@ class CreateImparteTable extends Migration
     public function up()
     {
         Schema::create('imparte', function (Blueprint $table) {
-            $table->string('c_codclase', 5);
-            $table->foreign('c_codclase')->references('codclase')->on('clase')->onDelete('cascade');
-            $table->string('p_idprofesor', 10);
-            $table->foreign('p_idprofesor')->references('id')->on('profesor')->onDelete('cascade');
-            $table->bigInteger('a_idaula', 20)->unsigned();
-            $table->foreign('a_idaula')->references('id')->on('aula')->onDelete('cascade');
+            $table->string("c_codclase", 5);
+            $table->string("p_idprofesor", 10);
+            $table->bigInteger("a_idaula", 20)->unsigned();
+            $table->foreign("c_codclase")->references("codclase")->on("clase")->onDelete("cascade");
+            $table->foreign("p_idprofesor")->references("id")->on("profesor")->onDelete("cascade");            
+            $table->foreign("a_idaula")->references("id")->on("aula")->onDelete("cascade");
             $table->timestamps();
         });
     }
