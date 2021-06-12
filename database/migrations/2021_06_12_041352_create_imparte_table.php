@@ -14,8 +14,8 @@ class CreateImparteTable extends Migration
     public function up()
     {
         Schema::create('imparte', function (Blueprint $table) {
-            $table->unsignedBigInteger("c_codclase");
-            $table->unsignedBigInteger("p_idprofesor");
+            $table->string("c_codclase")->unique();
+            $table->string("p_idprofesor")->unique();
             $table->unsignedBigInteger("a_idaula");
             $table->foreign("c_codclase")->references("codclase")->on("clase")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("p_idprofesor")->references("id")->on("profesor")->onDelete("cascade")->onUpdate("cascade");
