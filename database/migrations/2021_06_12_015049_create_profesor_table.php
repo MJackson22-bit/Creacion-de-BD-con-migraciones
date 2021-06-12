@@ -14,7 +14,10 @@ class CreateProfesorTable extends Migration
     public function up()
     {
         Schema::create('profesor', function (Blueprint $table) {
-            $table->id();
+            $table->string('id', 10);
+            $table->string('nombre', 255);
+            $table->string('apellido', 255);
+            $table->enum('titulo', ['LIC', 'ING', 'MSC', 'DOC'])->default('LIC');
             $table->timestamps();
         });
     }
