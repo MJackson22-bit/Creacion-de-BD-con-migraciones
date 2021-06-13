@@ -20,13 +20,19 @@ Route::get('/', function () {
 Route::get('/Aula/list', 'App\Http\Controllers\AulaController@index');
 Route::get('/Aula/create', 'App\Http\Controllers\AulaController@create');
 Route::post('/Aula/notificationAl', 'App\Http\Controllers\AulaController@store');
+Route::get('/Aula/edit/{id}', 'App\Http\Controllers\AulaController@show');
+Route::post('/Aula/notificationAlUpdate/{id}', 'App\Http\Controllers\AulaController@update');
 
 //Clase
 Route::get('/Clase/list', 'App\Http\Controllers\ClaseController@index');
 Route::get('/Clase/create', 'App\Http\Controllers\ClaseController@create');
 Route::post('/Clase/notificationCla', 'App\Http\Controllers\ClaseController@store');
+Route::get('/Clase/edit/{id}', 'App\Http\Controllers\ClaseController@show');
+Route::post('/Clase/notificationClaUpdate/{id}', 'App\Http\Controllers\ClaseController@update');
 
 //Profesor
 Route::get('/Profesor/list', 'App\Http\Controllers\ProfesorController@index');
 Route::get('/Profesor/create', 'App\Http\Controllers\ProfesorController@create');
 Route::post('/Profesor/notificationPro', 'App\Http\Controllers\ProfesorController@store');
+Route::get('/Profesor/edit/{id}', 'App\Http\Controllers\ProfesorController@show');
+Route::post('/Profesor/notificationProUpdate/{id}', 'App\Http\Controllers\ProfesorController@update');

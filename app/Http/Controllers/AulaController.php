@@ -31,4 +31,20 @@ class AulaController extends Controller
         $listaAula = DB::table('aulas')->get();
         return view('Aula.notification', compact('message'));
     }
+    public function show($id){
+        $aula = DB::table('aulas')->where('id', $id)->get()[0];
+        return view('Aula.edit', compact('aula'));
+    }
+    public function update(Request $request, $id){
+        $nombre = $request->input('a_nombre');
+        $ubicacion = $request->input('a_ubicacion');
+        $affected = DB::table('aulas')->where('id', $id)->update(['nombre' => $nombre, 'ubicacion' => $ubicacion]);
+        if($affected > 0){
+            $message = "Los datos han sido actualizados con éxito";
+        }else{
+            $message = "Ha ocurrido un error al actulizar los datos";
+        }
+        $type = "aula";
+        return view('Aula.notification', compact('type', 'message'));
+    }
 }

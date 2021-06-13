@@ -15,7 +15,7 @@
                     <input type="text" class="form-control" name="c_nombre" placeholder="Nombre de la clase" required>
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control col-md-4" name="c_creditos" placeholder="Número de Créditos" min="1" max="4" required>
+                    <input type="number" class="form-control col-md-5" name="c_creditos" placeholder="Número de Créditos" min="1" max="4" required>
                 </div>
                 <button type="submit" name="btEnviar" value="btPersonaje" class="btn btn-primary">Enviar</button>
             </form>

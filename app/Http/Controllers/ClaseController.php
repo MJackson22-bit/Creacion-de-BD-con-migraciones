@@ -29,4 +29,20 @@ class ClaseController extends Controller
         $listaAula = DB::table('clases')->get();
         return view('Clase.notification', compact('message'));
     }
+    public function show($id){
+        $clase = DB::table('clases')->where('codclase', $id)->get()[0];
+        return view('Clase.edit', compact('clase'));
+    }
+    public function update(Request $request, $id){
+        $nombre = $request->input('c_nombre');
+        $credito = $request->input('c_creditos');
+        $affected = DB::table('clases')->where('codclase', $id)->update(['nombre' => $nombre, 'credito' => $credito]);
+        if($affected > 0){
+            $message = "Los datos han sido actualizados con éxito";
+        }else{
+            $message = "Ha ocurrido un error al actulizar los datos";
+        }
+        $type = "clase";
+        return view('Clase.notification', compact('type', 'message'));
+    }
 }
