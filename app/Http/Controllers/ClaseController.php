@@ -39,10 +39,24 @@ class ClaseController extends Controller
         $affected = DB::table('clases')->where('codclase', $id)->update(['nombre' => $nombre, 'credito' => $credito]);
         if($affected > 0){
             $message = "Los datos han sido actualizados con éxito";
-        }else{
+        }elseif($affected == 0){
+            $message = "No han ocurrido cambios";
+        }
+        else{
             $message = "Ha ocurrido un error al actulizar los datos";
         }
-        $type = "clase";
-        return view('Clase.notification', compact('type', 'message'));
+        return view('Clase.notification', compact('message'));
+    }
+    public function destroy($id){
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
+        $affected = DB::table('clases')->where('codclase', $id)->delete();
+        if($affected > 0){
+            $message = "El registro ha sido eliminado con éxito";
+        }else{
+            $message = "Ha ocurrido un error";
+        }
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
+        $listaClase = DB::table('clases')->get();
+        return view('Clase.list', compact('listaClase','message'));
     }
 }

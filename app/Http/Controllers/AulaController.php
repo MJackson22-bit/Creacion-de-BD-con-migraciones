@@ -41,10 +41,25 @@ class AulaController extends Controller
         $affected = DB::table('aulas')->where('id', $id)->update(['nombre' => $nombre, 'ubicacion' => $ubicacion]);
         if($affected > 0){
             $message = "Los datos han sido actualizados con éxito";
-        }else{
+        }elseif($affected == 0){
+            $message = "No han ocurrido cambios";
+        }
+        else{
             $message = "Ha ocurrido un error al actulizar los datos";
         }
-        $type = "aula";
-        return view('Aula.notification', compact('type', 'message'));
+        return view('Aula.notification', compact('message'));
+    }
+
+    public function destroy($id){
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
+        $affected = DB::table('aulas')->where('id', $id)->delete();
+        if($affected > 0){
+            $message = "El registro ha sido eliminado con éxito";
+        }else{
+            $message = "Ha ocurrido un error";
+        }
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
+        $listaAula = DB::table('aulas')->get();
+        return view('Aula.list', compact('listaAula','message'));
     }
 }

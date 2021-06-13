@@ -11,9 +11,11 @@ class ProfesorController extends Controller
         $message = "Profesores registrados";
         return view('Profesor.list', compact('listaProfesor', 'message'));
     }
+
     public function create(){
         return view('Profesor.create');
     }
+
     public function store(Request $request){
         DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
         $id = $request->input('p_id');
@@ -30,10 +32,12 @@ class ProfesorController extends Controller
         $listaAula = DB::table('profesors')->get();
         return view('Profesor.notification', compact('message'));
     }
+
     public function show($id){
         $profesor = DB::table('profesors')->where('id', $id)->get()[0];
         return view('Profesor.edit', compact('profesor'));
     }
+
     public function update(Request $request, $id){
         $nombre = $request->input('p_nombre');
         $apellido = $request->input('p_apellido');
@@ -41,10 +45,24 @@ class ProfesorController extends Controller
         $affected = DB::table('profesors')->where('id', $id)->update(['nombre' => $nombre, 'apellido' => $apellido, 'titulo' => $titulo]);
         if($affected > 0){
             $message = "Los datos han sido actualizados con éxito";
-        }else{
+        }elseif($affected == 0){
+            $message = "No han ocurrido cambios";
+        }
+        else{
             $message = "Ha ocurrido un error al actulizar los datos";
         }
-        $type = "profesor";
-        return view('Profesor.notification', compact('type', 'message'));
+        return view('Profesor.notification', compact('message'));
+    }
+    public function destroy($id){
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
+        $affected = DB::table('profesors')->where('id', $id)->delete();
+        if($affected > 0){
+            $message = "El registro ha sido eliminado con éxito";
+        }else{
+            $message = "Ha ocurrido un error";
+        }
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
+        $listaProfesor = DB::table('profesors')->get();
+        return view('Profesor.list', compact('listaProfesor','message'));
     }
 }

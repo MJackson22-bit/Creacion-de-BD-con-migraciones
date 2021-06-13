@@ -39,7 +39,7 @@
                   <td>
 
                      <div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="{{ asset('/alumno/delete/' . $data->id) }}" class="btn btn-warning">Eliminar</a>
+                        <a href="{{ asset('/Aula/delete/' . $data->id) }}" class="btn btn-warning">Eliminar</a>
                      <a href="{{ asset('/Aula/edit/' . $data->id) }}" class="btn btn-success">Editar</a>
                      </div>
                   </td>
@@ -50,7 +50,7 @@
    
          </table>
          
-   <a href="/alumno" class="btn btn-link">Ir Atrás</a>
+   <a href="/Aula/list" class="btn btn-link">Referes URL</a>
       </div>
    @endif
 

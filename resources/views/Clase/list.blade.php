@@ -36,7 +36,7 @@
                   <td>
 
                      <div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="{{ asset('/alumno/delete/' . $data->codclase) }}" class="btn btn-warning">Eliminar</a>
+                        <a href="{{ asset('/Clase/delete/' . $data->codclase) }}" class="btn btn-warning">Eliminar</a>
                      <a href="{{ asset('/Clase/edit/' . $data->codclase) }}" class="btn btn-success">Editar</a>
                      </div>
                   </td>
@@ -47,7 +47,7 @@
    
          </table>
          
-   <a href="/alumno" class="btn btn-link">Ir Atrás</a>
+   <a href="/Clase/list" class="btn btn-link">Refresh URL</a>
       </div>
    @endif
 

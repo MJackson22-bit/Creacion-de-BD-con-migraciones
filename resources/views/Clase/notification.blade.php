@@ -5,8 +5,6 @@
     <div class="alert alert-success" role="alert">
         <h4 align="center" class="alert-heading">{{$message}}</h4>
     </div>
-    @if ($type == "clase")
     <a href="/Clase/list" align="center" class="btn btn-primary">Ir Atrás</a>
-    @endif
 </div>
 @endsection

@@ -24,7 +24,7 @@
                     <input type="text" id="a_ubicacion" class="form-control col-md-6" name="a_ubicacion" value="{{$aula->ubicacion}}" required>
                 </div>
                 <br/>
-                <button type="submit" name="btEnviar" value="btPersonaje" class="btn btn-primary">Enviar</button>
+                <button type="submit" name="btEnviar" value="btPersonaje" class="btn btn-primary">Actualizar</button>
             </form>
             <hr/>
             <hr/>
